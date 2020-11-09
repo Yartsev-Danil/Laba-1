@@ -1,28 +1,41 @@
 //
-// Created by yarze on 05.11.2020.
+// Created by yarze on 06.11.2020.
 //
 
-#ifndef LAB1_POLYNOM_H
-#define LAB1_POLYNOM_H
-
+#ifndef UNTITLED6_POLYNOM_H
+#define UNTITLED6_POLYNOM_H
 #include <stdio.h>
 #include <complex.h>
 #include <stdlib.h>
 
-typedef enum {DOUBLE, COMPLEX} El_type;
-typedef struct polynomial {
+typedef enum
+{
+    DOUBLE,
+    COMPLEX
+} El_type;
+
+typedef struct {
     El_type el_type;
-    void *data;
+    void* data;
     int power;
 } polynomial;
 
 
 
 polynomial* MakePolynom(int, El_type, void*);
-
-
-
+/////////////////////////////////////////////////
 void DeletePolynom(polynomial*);
-
-
-#endif //LAB1_POLYNOM_H
+///////////////////////////////////
+void* GetData(polynomial const *);
+int* GetDataI(polynomial const *);
+complex* GetDataC(polynomial const *);
+//////////////////////////////////////////////
+polynomial* max_pol(polynomial*, polynomial*);
+polynomial* min_pol(polynomial*, polynomial*);
+int max_power(polynomial*, polynomial*);
+int min_power(polynomial*, polynomial*);
+//////////////////////////////////////////////
+polynomial* Adding(polynomial*, polynomial*);
+polynomial* Multiplication(polynomial*, polynomial*);
+void* calculating(polynomial*, void*);
+#endif //UNTITLED6_POLYNOM_H
